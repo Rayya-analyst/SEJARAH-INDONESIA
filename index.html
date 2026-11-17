@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perjuangan Mempertahankan Kemerdekaan Indonesia (1945–1949) | Scrapbook Interaktif</title>
+  <meta name="description" content="Media pembelajaran interaktif sejarah perjuangan fisik dan diplomasi mempertahankan kemerdekaan Republik Indonesia (1945-1949) bertema scrapbook.">
+  
+  <!-- Google Fonts: Handwritten & Vintage Historical Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Patrick+Hand&family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="scrapbook-body">
+
+  <!-- Scrapbook Ambient Layer (Background texture & subtle grain) -->
+  <div class="vintage-bg-overlay" aria-hidden="true"></div>
+
+  <!-- Top Sticky Navigation & Scrapbook Controls -->
+  <header class="scrapbook-nav-container">
+    <div class="scrapbook-nav">
+      <div class="nav-brand">
+        <svg class="brand-wax-seal" viewBox="0 0 100 100" aria-hidden="true">
+          <circle cx="50" cy="50" r="44" fill="#a83c50" stroke="#792837" stroke-width="4"/>
+          <circle cx="50" cy="50" r="36" fill="none" stroke="#f6cad2" stroke-dasharray="3,3" stroke-width="2"/>
+          <text x="50" y="44" text-anchor="middle" font-family="'Cinzel', serif" font-weight="bold" font-size="12" fill="#fff5f7">RI 1945</text>
+          <text x="50" y="62" text-anchor="middle" font-family="'Patrick Hand', cursive" font-size="10" fill="#fad2d8">SEJARAH</text>
+        </svg>
+        <div class="brand-text">
+          <span class="brand-subtitle">KILAS SEJARAH NASIONAL</span>
+          <h1 class="brand-title">Perjuangan Kemerdekaan RI</h1>
+        </div>
+      </div>
+
+      <!-- Quick Action Controls -->
+      <div class="nav-actions">
+        <!-- Audio Effects Toggle -->
+        <button id="btnAudioToggle" class="action-btn" title="Efek Suara Kertas & Suasana">
+          <svg class="action-icon sound-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
+          <svg class="action-icon sound-off hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <line x1="23" y1="9" x2="17" y2="15"></line>
+            <line x1="17" y1="9" x2="23" y2="15"></line>
+          </svg>
+          <span class="btn-text">Suara Kertas</span>
+        </button>
+
+        <!-- Kuis Sejarah Modal Button -->
+        <button id="btnOpenQuiz" class="action-btn highlight-quiz" title="Uji Pemahaman dengan Kuis Interaktif">
+          <svg class="action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+          <span class="btn-text">Kuis Interaktif</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Filter & Search Toolbar (for Poster Mode) -->
+  <aside class="scrapbook-toolbar" id="scrapbookToolbar">
+    <div class="toolbar-content">
+      <div class="category-filters">
+        <button class="filter-pill active" data-filter="all">Semua Peristiwa (13)</button>
+        <button class="filter-pill pink-pill" data-filter="fisik">
+          <span class="color-dot pink-dot"></span>
+          Perjuangan Fisik (8)
+        </button>
+        <button class="filter-pill green-pill" data-filter="diplomasi">
+          <span class="color-dot green-dot"></span>
+          Perjuangan Diplomasi (5)
+        </button>
+      </div>
+      
+      <div class="search-box">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input type="text" id="searchInput" placeholder="Cari peristiwa, tokoh (Bung Tomo, Soedirman...), lokasi..." aria-label="Cari peristiwa sejarah">
+        <button id="btnClearSearch" class="clear-btn hidden" title="Hapus pencarian">×</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN WRAPPER -->
+  <main class="scrapbook-stage">
+
+    <!-- ======================================================== -->
+    <!-- FULL POSTER SCRAPBOOK BOARD                              -->
+    <!-- ======================================================== -->
+    <div id="posterContainer" class="poster-canvas-wrapper view-active">
+      <div class="scrapbook-board" id="scrapbookBoard">
+        
+        <!-- Scrapbook Decorative Background SVG Elements -->
+        <svg class="board-botanical-decor top-left" viewBox="0 0 120 120" aria-hidden="true">
+          <path d="M10,110 C30,70 60,40 110,20 M35,80 C20,70 25,50 45,65 M60,55 C50,40 60,25 75,40 M85,35 C80,20 95,10 105,25" fill="none" stroke="#487556" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="45" cy="65" r="5" fill="#e5989b"/>
+          <circle cx="75" cy="40" r="5" fill="#f4acb7"/>
+          <circle cx="105" cy="25" r="6" fill="#e5989b"/>
+        </svg>
+
+        <svg class="board-botanical-decor top-right" viewBox="0 0 120 120" aria-hidden="true">
+          <path d="M110,110 C90,70 60,40 10,20 M85,80 C100,70 95,50 75,65 M60,55 C70,40 60,25 45,40 M35,35 C40,20 25,10 15,25" fill="none" stroke="#487556" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="75" cy="65" r="5" fill="#e5989b"/>
+          <circle cx="45" cy="40" r="5" fill="#f4acb7"/>
+          <circle cx="15" cy="25" r="6" fill="#e5989b"/>
+        </svg>
+
+        <!-- TOP HEADER SECTION OF POSTER -->
+        <header class="poster-header-section">
+          
+          <!-- Left Craft Note: Setelah Proklamasi + Bung Karno Polaroid -->
+          <div class="intro-craft-card intro-left" id="cardIntroLeft">
+            <div class="washi-tape tape-pink tape-intro-top"></div>
+            <div class="paper-clip-brass clip-intro"></div>
+            
+            <div class="intro-content-row">
+              <div class="intro-text-side">
+                <span class="scrapbook-handwritten-badge">Latar Belakang 1945</span>
+                <p class="intro-paragraph">
+                  Setelah Proklamasi 17 Agustus 1945, Indonesia masih harus menghadapi usaha Belanda untuk kembali berkuasa. Bangsa Indonesia mempertahankan kemerdekaan melalui <strong>perjuangan fisik</strong> (perlawanan bersenjata) dan <strong>perjuangan diplomasi</strong> (perundingan).
+                </p>
+                <div class="heart-doodle" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#d47a8a" stroke-width="2">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Polaroid of Bung Karno -->
+              <div class="polaroid-wrapper bung-karno-polaroid" onclick="openPhotoModal('soekarno.jpg', 'Ir. Soekarno - Proklamator & Presiden Pertama RI', 'Setelah memproklamasikan kemerdekaan, Ir. Soekarno bersama para pemimpin bangsa menggelorakan semangat mempertahankan kedaulatan tanah air melalui seluruh jalur perjuangan.')">
+                <div class="washi-tape tape-corner-left tape-green"></div>
+                <div class="washi-tape tape-corner-right tape-green"></div>
+                <div class="polaroid-inner">
+                  <div class="polaroid-img-box">
+                    <img src="./soekarno.jpg" alt="Ir. Soekarno Proklamator RI" loading="lazy">
+                  </div>
+                  <div class="polaroid-caption">
+                    <span class="caption-handwritten">Ir. Soekarno (1945)</span>
+                    <span class="caption-sub">Bapak Proklamator</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Center Main Scrapbook Title Banner -->
+          <div class="poster-title-center">
+            <!-- Decorative Flower Sprigs -->
+            <div class="hand-doodle-star top-doodle" aria-hidden="true">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2e5a44" stroke-width="2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </div>
+
+            <div class="scrapbook-main-title-box">
+              <h1 class="scrapbook-title-main">
+                Perjuangan Mempertahankan<br>
+                <span class="title-highlight">Kemerdekaan Indonesia</span>
+              </h1>
+              <div class="title-date-badge">
+                <div class="washi-tape tape-title-date tape-pink-dots"></div>
+                <span class="date-text">(1945 – 1949)</span>
+              </div>
+            </div>
+
+            <!-- Hand-drawn flourish ribbon below -->
+            <svg class="title-flourish-svg" viewBox="0 0 300 24" aria-hidden="true">
+              <path d="M10,12 C70,2 110,22 150,12 C190,2 230,22 290,12" fill="none" stroke="#d47a8a" stroke-width="2.5" stroke-dasharray="6,4"/>
+            </svg>
+          </div>
+
+          <!-- Right Craft Corner: Merdeka atau Mati Banner + Bendera RI + Monas -->
+          <div class="intro-craft-card intro-right">
+            <div class="washi-tape tape-green tape-intro-right"></div>
+            
+            <div class="right-decor-stack">
+              <!-- Hand-drawn Flag Stamp -->
+              <div class="vintage-stamp flag-stamp">
+                <div class="stamp-serrated-border">
+                  <div class="stamp-content">
+                    <div class="flag-drawing">
+                      <div class="flag-red"></div>
+                      <div class="flag-white"></div>
+                      <div class="flag-pole"></div>
+                    </div>
+                    <span class="stamp-label">17 AGUSTUS 1945</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Merdeka atau Mati note -->
+              <div class="quote-tag-green">
+                <span class="tag-pin"></span>
+                <p class="tag-quote-text">Merdeka<br>atau mati !</p>
+                <div class="tag-heart">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="#2e5a44">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </header>
+
+        <!-- MAIN DUAL-COLUMN SCRAPBOOK BODY: SECTIONS A & B -->
+        <div class="poster-columns-grid">
+
+          <!-- ============================================== -->
+          <!-- SECTION A: PERJUANGAN FISIK (LEFT MAIN COLUMN) -->
+          <!-- ============================================== -->
+          <section class="scrapbook-column column-fisik" id="sectionFisik">
+            <!-- Section A Banner Header with Pink Tape -->
+            <div class="section-banner-header">
+              <div class="washi-tape-strip tape-pink-large">
+                <h2 class="section-heading-title">A. Perjuangan Fisik</h2>
+              </div>
+              <span class="section-badge-counter">8 Peristiwa Sejarah</span>
+            </div>
+
+            <!-- List of 8 Fisik Event Cards (Side-by-side: Content + Image) -->
+            <div class="events-cards-stream" id="streamFisik">
+
+              <!-- 1. Pertempuran Lima Hari di Semarang -->
+              <article class="event-scrapbook-card card-fisik" data-event-id="semarang" data-category="fisik" data-year="1945">
+                <div class="pin-ornament pin-top-center"></div>
+                <div class="washi-tape tape-card-corner tape-pink-pattern"></div>
+                
+                <div class="card-side-by-side">
+                  <!-- Text Information Column -->
+                  <div class="card-text-column">
+                    <div class="card-number-badge">
+                      <span class="badge-num">1</span>
+                      <h3 class="event-title">Pertempuran Lima Hari di Semarang</h3>
+                    </div>
+                    
+                    <ul class="event-details-list">
+                      <li class="detail-item">
+                        <span class="detail-label">Waktu</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value highlight-date">15–19 Oktober 1945</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Tokoh</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Dr. Kariadi</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Penyebab</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Konflik antara pemuda Indonesia dan tentara Jepang.</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Peristiwa</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Pertempuran berlangsung selama lima hari dan menimbulkan banyak korban.</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Dampak</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Dikenang melalui Monumen Tugu Muda.</span>
+                      </li>
+                    </ul>
+
+                    <div class="card-action-footer">
+                      <button class="btn-read-aloud" onclick="readEventNarration('semarang')" title="Dengarkan narasi">
+                        <svg class="speaker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                        </svg>
+                        <span>Dengarkan</span>
+                      </button>
+                      <button class="btn-inspect-detail" onclick="openDetailModal('semarang')">
+                        Detail Lengkap
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Polaroid Photo Column (Beside Information) -->
+                  <div class="card-photo-column">
+                    <div class="scrapbook-polaroid polaroid-tilt-right" onclick="openPhotoModal('pertempuran lima hari di semarang.jpg', 'Pertempuran Lima Hari di Semarang', 'Dikenang melalui berdirinya Monumen Tugu Muda di Semarang untuk menghormati jasa para pejuang dan Dr. Kariadi.')">
+                      <div class="washi-tape tape-polaroid-top tape-green-dots"></div>
+                      <div class="polaroid-inner">
+                        <div class="polaroid-img-wrapper">
+                          <img src="./pertempuran lima hari di semarang.jpg" alt="Monumen Tugu Muda Pertempuran Lima Hari di Semarang" loading="lazy">
+                          <div class="img-zoom-hint">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <circle cx="11" cy="11" r="8"></circle>
+                              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                              <line x1="11" y1="8" x2="11" y2="14"></line>
+                              <line x1="8" y1="11" x2="14" y2="11"></line>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="polaroid-caption">
+                          <span class="caption-handwritten">Tugu Muda Semarang</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- 2. Pertempuran Surabaya -->
+              <article class="event-scrapbook-card card-fisik" data-event-id="surabaya" data-category="fisik" data-year="1945">
+                <div class="pin-ornament pin-top-center"></div>
+                <div class="washi-tape tape-card-corner tape-pink-pattern"></div>
+                
+                <div class="card-side-by-side">
+                  <div class="card-text-column">
+                    <div class="card-number-badge">
+                      <span class="badge-num">2</span>
+                      <h3 class="event-title">Pertempuran Surabaya</h3>
+                    </div>
+                    
+                    <ul class="event-details-list">
+                      <li class="detail-item">
+                        <span class="detail-label">Waktu</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value highlight-date">10 November 1945</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Tokoh</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Bung Tomo dan Gubernur Suryo.</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Penyebab</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Rakyat menolak ultimatum Sekutu untuk menyerahkan senjata.</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Peristiwa</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Rakyat melawan serangan besar pasukan Sekutu.</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Dampak</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Menjadi dasar peringatan Hari Pahlawan setiap 10 November.</span>
+                      </li>
+                    </ul>
+
+                    <div class="card-action-footer">
+                      <button class="btn-read-aloud" onclick="readEventNarration('surabaya')" title="Dengarkan narasi">
+                        <svg class="speaker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                        </svg>
+                        <span>Dengarkan</span>
+                      </button>
+                      <button class="btn-inspect-detail" onclick="openDetailModal('surabaya')">
+                        Detail Lengkap
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="card-photo-column">
+                    <div class="scrapbook-polaroid polaroid-tilt-left" onclick="openPhotoModal('pertempuran surabaya 10 november.jpg', 'Pertempuran Surabaya 10 November 1945', 'Pidato Bung Tomo yang berapi-api membakar semangat arek-arek Suroboyo melawan ultimatum tentara Sekutu.')">
+                      <div class="washi-tape tape-polaroid-top tape-pink-dots"></div>
+                      <div class="polaroid-inner">
+                        <div class="polaroid-img-wrapper">
+                          <img src="./pertempuran surabaya 10 november.jpg" alt="Bung Tomo berpidato membakar semangat Pertempuran Surabaya" loading="lazy">
+                          <div class="img-zoom-hint">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <circle cx="11" cy="11" r="8"></circle>
+                              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                              <line x1="11" y1="8" x2="11" y2="14"></line>
+                              <line x1="8" y1="11" x2="14" y2="11"></line>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="polaroid-caption">
+                          <span class="caption-handwritten">Bung Tomo Surabaya</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- 3. Pertempuran Ambarawa -->
+              <article class="event-scrapbook-card card-fisik" data-event-id="ambarawa" data-category="fisik" data-year="1945">
+                <div class="pin-ornament pin-top-center"></div>
+                <div class="washi-tape tape-card-corner tape-pink-pattern"></div>
+                
+                <div class="card-side-by-side">
+                  <div class="card-text-column">
+                    <div class="card-number-badge">
+                      <span class="badge-num">3</span>
+                      <h3 class="event-title">Pertempuran Ambarawa</h3>
+                    </div>
+                    
+                    <ul class="event-details-list">
+                      <li class="detail-item">
+                        <span class="detail-label">Waktu</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value highlight-date">20 November–15 Desember 1945</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Tokoh</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Kolonel Soedirman.</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Penyebab</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Kedatangan Sekutu yang dianggap membantu Belanda.</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Peristiwa</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Pasukan Indonesia menggunakan taktik supit urang untuk mengepung lawan.</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Dampak</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Sekutu berhasil dipukul mundur dari Ambarawa.</span>
+                      </li>
+                    </ul>
+
+                    <div class="card-action-footer">
+                      <button class="btn-read-aloud" onclick="readEventNarration('ambarawa')" title="Dengarkan narasi">
+                        <svg class="speaker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                        </svg>
+                        <span>Dengarkan</span>
+                      </button>
+                      <button class="btn-inspect-detail" onclick="openDetailModal('ambarawa')">
+                        Detail Lengkap
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="card-photo-column">
+                    <div class="scrapbook-polaroid polaroid-tilt-right" onclick="openPhotoModal('pertempuran ambarawa.jpg', 'Pertempuran Ambarawa', 'Kolonel Soedirman memimpin taktik Supit Urang yang brilian hingga Sekutu berhasil dipukul mundur.')">
+                      <div class="washi-tape tape-polaroid-top tape-green-stripes"></div>
+                      <div class="polaroid-inner">
+                        <div class="polaroid-img-wrapper">
+                          <img src="./pertempuran ambarawa.jpg" alt="Kolonel Soedirman Tokoh Pertempuran Ambarawa" loading="lazy">
+                          <div class="img-zoom-hint">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <circle cx="11" cy="11" r="8"></circle>
+                              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                              <line x1="11" y1="8" x2="11" y2="14"></line>
+                              <line x1="8" y1="11" x2="14" y2="11"></line>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="polaroid-caption">
+                          <span class="caption-handwritten">Kolonel Soedirman</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- 4. Bandung Lautan Api -->
+              <article class="event-scrapbook-card card-fisik" data-event-id="bandung" data-category="fisik" data-year="1946">
+                <div class="pin-ornament pin-top-center"></div>
+                <div class="washi-tape tape-card-corner tape-pink-pattern"></div>
+                
+                <div class="card-side-by-side">
+                  <div class="card-text-column">
+                    <div class="card-number-badge">
+                      <span class="badge-num">4</span>
+                      <h3 class="event-title">Bandung Lautan Api</h3>
+                    </div>
+                    
+                    <ul class="event-details-list">
+                      <li class="detail-item">
+                        <span class="detail-label">Waktu</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value highlight-date">23–24 Maret 1946</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Tokoh</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">A.H. Nasution dan Mohammad Toha.</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Penyebab</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Sekutu memerintahkan pasukan Indonesia meninggalkan Bandung.</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Peristiwa</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Rakyat membumihanguskan sejumlah bangunan sebelum mengungsi.</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Dampak</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Mencegah fasilitas penting dimanfaatkan musuh dan menjadi simbol pengorbanan rakyat.</span>
+                      </li>
+                    </ul>
+
+                    <div class="card-action-footer">
+                      <button class="btn-read-aloud" onclick="readEventNarration('bandung')" title="Dengarkan narasi">
+                        <svg class="speaker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                        </svg>
+                        <span>Dengarkan</span>
+                      </button>
+                      <button class="btn-inspect-detail" onclick="openDetailModal('bandung')">
+                        Detail Lengkap
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="card-photo-column">
+                    <div class="scrapbook-polaroid polaroid-tilt-left" onclick="openPhotoModal('bandung lautan api.jpg', 'Bandung Lautan Api (Maret 1946)', 'Asap tebal membubung tinggi saat kota Bandung dibumihanguskan demi menjaga kedaulatan dari tangan Sekutu.')">
+                      <div class="washi-tape tape-polaroid-top tape-pink-stripes"></div>
+                      <div class="polaroid-inner">
+                        <div class="polaroid-img-wrapper">
+                          <img src="./bandung lautan api.jpg" alt="Asap membubung saat peristiwa Bandung Lautan Api" loading="lazy">
+                          <div class="img-zoom-hint">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <circle cx="11" cy="11" r="8"></circle>
+                              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                              <line x1="11" y1="8" x2="11" y2="14"></line>
+                              <line x1="8" y1="11" x2="14" y2="11"></line>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="polaroid-caption">
+                          <span class="caption-handwritten">Bandung Lautan Api</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- 5. Pertempuran Medan Area -->
+              <article class="event-scrapbook-card card-fisik" data-event-id="medan" data-category="fisik" data-year="1945">
+                <div class="pin-ornament pin-top-center"></div>
+                <div class="washi-tape tape-card-corner tape-pink-pattern"></div>
+                
+                <div class="card-side-by-side">
+                  <div class="card-text-column">
+                    <div class="card-number-badge">
+                      <span class="badge-num">5</span>
+                      <h3 class="event-title">Pertempuran Medan Area</h3>
+                    </div>
+                    
+                    <ul class="event-details-list">
+                      <li class="detail-item">
+                        <span class="detail-label">Waktu</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value highlight-date">Sejak 13 Oktober 1945</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Tokoh</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Ahmad Tahir.</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Penyebab</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Kedatangan Sekutu bersama NICA.</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Peristiwa</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Rakyat dan pejuang melawan pasukan Sekutu serta Belanda.</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Dampak</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Perlawanan berlanjut di Medan dan wilayah sekitarnya.</span>
+                      </li>
+                    </ul>
+
+                    <div class="card-action-footer">
+                      <button class="btn-read-aloud" onclick="readEventNarration('medan')" title="Dengarkan narasi">
+                        <svg class="speaker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                        </svg>
+                        <span>Dengarkan</span>
+                      </button>
+                      <button class="btn-inspect-detail" onclick="openDetailModal('medan')">
+                        Detail Lengkap
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="card-photo-column">
+                    <div class="scrapbook-polaroid polaroid-tilt-right" onclick="openPhotoModal('semangat rakyat sumatera utara.jpg', 'Pertempuran Medan Area', 'Semangat membara para pemuda dan pejuang Sumatera Utara di bawah pimpinan Ahmad Tahir.')">
+                      <div class="washi-tape tape-polaroid-top tape-green-dots"></div>
+                      <div class="polaroid-inner">
+                        <div class="polaroid-img-wrapper">
+                          <img src="./semangat rakyat sumatera utara.jpg" alt="Pejuang Pertempuran Medan Area Sumatera Utara" loading="lazy">
+                          <div class="img-zoom-hint">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <circle cx="11" cy="11" r="8"></circle>
+                              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                              <line x1="11" y1="8" x2="11" y2="14"></line>
+                              <line x1="8" y1="11" x2="14" y2="11"></line>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="polaroid-caption">
+                          <span class="caption-handwritten">Pejuang Medan Area</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- 6. Puputan Margarana -->
+              <article class="event-scrapbook-card card-fisik" data-event-id="margarana" data-category="fisik" data-year="1946">
+                <div class="pin-ornament pin-top-center"></div>
+                <div class="washi-tape tape-card-corner tape-pink-pattern"></div>
+                
+                <div class="card-side-by-side">
+                  <div class="card-text-column">
+                    <div class="card-number-badge">
+                      <span class="badge-num">6</span>
+                      <h3 class="event-title">Puputan Margarana</h3>
+                    </div>
+                    
+                    <ul class="event-details-list">
+                      <li class="detail-item">
+                        <span class="detail-label">Waktu</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value highlight-date">20 November 1946</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Tokoh</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">I Gusti Ngurah Rai.</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Penyebab</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Belanda berusaha kembali menguasai Bali.</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Peristiwa</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Pasukan Ciung Wanara bertempur habis-habisan melawan Belanda.</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Dampak</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Menjadi simbol keberanian dan pengorbanan rakyat Bali.</span>
+                      </li>
+                    </ul>
+
+                    <div class="card-action-footer">
+                      <button class="btn-read-aloud" onclick="readEventNarration('margarana')" title="Dengarkan narasi">
+                        <svg class="speaker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                        </svg>
+                        <span>Dengarkan</span>
+                      </button>
+                      <button class="btn-inspect-detail" onclick="openDetailModal('margarana')">
+                        Detail Lengkap
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="card-photo-column">
+                    <div class="scrapbook-polaroid polaroid-tilt-left" onclick="openPhotoModal('puputan margarana.jpg', 'Puputan Margarana Bali', 'I Gusti Ngurah Rai dan pasukan Ciung Wanara gugur sebagai kusuma bangsa dalam pertempuran puputan (habis-habisan).')">
+                      <div class="washi-tape tape-polaroid-top tape-pink-dots"></div>
+                      <div class="polaroid-inner">
+                        <div class="polaroid-img-wrapper">
+                          <img src="./puputan margarana.jpg" alt="I Gusti Ngurah Rai Pemimpin Puputan Margarana" loading="lazy">
+                          <div class="img-zoom-hint">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <circle cx="11" cy="11" r="8"></circle>
+                              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                              <line x1="11" y1="8" x2="11" y2="14"></line>
+                              <line x1="8" y1="11" x2="14" y2="11"></line>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="polaroid-caption">
+                          <span class="caption-handwritten">I Gusti Ngurah Rai</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- 7. Peristiwa Westerling -->
+              <article class="event-scrapbook-card card-fisik" data-event-id="westerling" data-category="fisik" data-year="1946">
+                <div class="pin-ornament pin-top-center"></div>
+                <div class="washi-tape tape-card-corner tape-pink-pattern"></div>
+                
+                <div class="card-side-by-side">
+                  <div class="card-text-column">
+                    <div class="card-number-badge">
+                      <span class="badge-num">7</span>
+                      <h3 class="event-title">Peristiwa Westerling</h3>
+                    </div>
+                    
+                    <ul class="event-details-list">
+                      <li class="detail-item">
+                        <span class="detail-label">Waktu</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value highlight-date">Desember 1946–Februari 1947</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Tokoh</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Raymond Westerling.</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Tempat</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Sulawesi Selatan.</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Peristiwa</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Pasukan Belanda melakukan operasi kekerasan terhadap penduduk yang dicurigai mendukung Republik.</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Dampak</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Menimbulkan banyak korban dan memperkuat perlawanan rakyat terhadap Belanda.</span>
+                      </li>
+                    </ul>
+
+                    <div class="card-action-footer">
+                      <button class="btn-read-aloud" onclick="readEventNarration('westerling')" title="Dengarkan narasi">
+                        <svg class="speaker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                        </svg>
+                        <span>Dengarkan</span>
+                      </button>
+                      <button class="btn-inspect-detail" onclick="openDetailModal('westerling')">
+                        Detail Lengkap
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="card-photo-column">
+                    <div class="scrapbook-polaroid polaroid-tilt-right" onclick="openPhotoModal('peristiwa wasterling.jpg', 'Peristiwa Westerling di Sulawesi Selatan', 'Operasi militer DST pimpinan Raymond Westerling yang melakukan pembantaian massal di Sulawesi Selatan.')">
+                      <div class="washi-tape tape-polaroid-top tape-green-stripes"></div>
+                      <div class="polaroid-inner">
+                        <div class="polaroid-img-wrapper">
+                          <img src="./peristiwa wasterling.jpg" alt="Raymond Westerling tokoh operasi militer Belanda di Sulsel" loading="lazy">
+                          <div class="img-zoom-hint">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <circle cx="11" cy="11" r="8"></circle>
+                              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                              <line x1="11" y1="8" x2="11" y2="14"></line>
+                              <line x1="8" y1="11" x2="14" y2="11"></line>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="polaroid-caption">
+                          <span class="caption-handwritten">Raymond Westerling</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- 8. Serangan Umum 1 Maret 1949 -->
+              <article class="event-scrapbook-card card-fisik" data-event-id="serangan-umum" data-category="fisik" data-year="1949">
+                <div class="pin-ornament pin-top-center"></div>
+                <div class="washi-tape tape-card-corner tape-pink-pattern"></div>
+                
+                <div class="card-side-by-side">
+                  <div class="card-text-column">
+                    <div class="card-number-badge">
+                      <span class="badge-num">8</span>
+                      <h3 class="event-title">Serangan Umum 1 Maret 1949</h3>
+                    </div>
+                    
+                    <ul class="event-details-list">
+                      <li class="detail-item">
+                        <span class="detail-label">Waktu</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value highlight-date">1 Maret 1949</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Tokoh</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Sri Sultan Hamengkubuwono IX dan Letkol Soeharto.</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Tempat</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Yogyakarta.</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Penyebab</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Belanda menduduki Yogyakarta dan menganggap Republik telah melemah.</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Peristiwa</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">TNI berhasil menguasai Yogyakarta selama sekitar enam jam.</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Dampak</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Membuktikan kepada dunia bahwa Republik Indonesia dan TNI masih bertahan.</span>
+                      </li>
+                    </ul>
+
+                    <div class="card-action-footer">
+                      <button class="btn-read-aloud" onclick="readEventNarration('serangan-umum')" title="Dengarkan narasi">
+                        <svg class="speaker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                        </svg>
+                        <span>Dengarkan</span>
+                      </button>
+                      <button class="btn-inspect-detail" onclick="openDetailModal('serangan-umum')">
+                        Detail Lengkap
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="card-photo-column">
+                    <div class="scrapbook-polaroid polaroid-tilt-left" onclick="openPhotoModal('serangan umum 1 maret 1949.jpg', 'Serangan Umum 1 Maret 1949 Yogyakarta', 'Penguasaan 6 jam kota Yogyakarta oleh TNI mematahkan propaganda Belanda di mata dunia internasional.')">
+                      <div class="washi-tape tape-polaroid-top tape-pink-dots"></div>
+                      <div class="polaroid-inner">
+                        <div class="polaroid-img-wrapper">
+                          <img src="./serangan umum 1 maret 1949.jpg" alt="Pasukan TNI pada Serangan Umum 1 Maret 1949" loading="lazy">
+                          <div class="img-zoom-hint">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <circle cx="11" cy="11" r="8"></circle>
+                              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                              <line x1="11" y1="8" x2="11" y2="14"></line>
+                              <line x1="8" y1="11" x2="14" y2="11"></line>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="polaroid-caption">
+                          <span class="caption-handwritten">TNI di Yogyakarta 1949</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+            </div>
+          </section>
+
+          <!-- ================================================== -->
+          <!-- SECTION B: PERJUANGAN DIPLOMASI (RIGHT MAIN COLUMN) -->
+          <!-- ================================================== -->
+          <section class="scrapbook-column column-diplomasi" id="sectionDiplomasi">
+            <!-- Section B Banner Header with Dark Sage Green Tape -->
+            <div class="section-banner-header">
+              <div class="washi-tape-strip tape-green-large">
+                <h2 class="section-heading-title">B. Perjuangan Diplomasi</h2>
+              </div>
+              <span class="section-badge-counter">5 Perundingan Utama</span>
+            </div>
+
+            <!-- List of 5 Diplomasi Event Cards (Side-by-side: Content + Image) -->
+            <div class="events-cards-stream" id="streamDiplomasi">
+
+              <!-- 1. Perundingan Hooge Veluwe -->
+              <article class="event-scrapbook-card card-diplomasi" data-event-id="hooge-veluwe" data-category="diplomasi" data-year="1946">
+                <div class="paper-clip-brass clip-card-left"></div>
+                <div class="washi-tape tape-card-corner tape-green-pattern"></div>
+                
+                <div class="card-side-by-side">
+                  <div class="card-text-column">
+                    <div class="card-number-badge">
+                      <span class="badge-num num-green">1</span>
+                      <h3 class="event-title">Perundingan Hooge Veluwe</h3>
+                    </div>
+                    
+                    <ul class="event-details-list">
+                      <li class="detail-item">
+                        <span class="detail-label">Waktu</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value highlight-date">14–25 April 1946</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Tokoh</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Sutan Sjahrir dan Mohammad Hatta.</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Tujuan</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Membahas pengakuan Belanda terhadap Republik Indonesia.</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Hasil</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Gagal mencapai kesepakatan karena perbedaan pendapat mengenai wilayah dan kedudukan Republik.</span>
+                      </li>
+                    </ul>
+
+                    <div class="card-action-footer">
+                      <button class="btn-read-aloud btn-aloud-green" onclick="readEventNarration('hooge-veluwe')" title="Dengarkan narasi">
+                        <svg class="speaker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                        </svg>
+                        <span>Dengarkan</span>
+                      </button>
+                      <button class="btn-inspect-detail btn-inspect-green" onclick="openDetailModal('hooge-veluwe')">
+                        Detail Lengkap
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="card-photo-column">
+                    <div class="scrapbook-polaroid polaroid-tilt-right" onclick="openPhotoModal('perundingan hooge veluwe.jpg', 'Perundingan Hooge Veluwe (April 1946)', 'Delegasi Indonesia dan Belanda berunding di Belanda dalam upaya awal perundingan diplomatik bilateral.')">
+                      <div class="washi-tape tape-polaroid-top tape-green-stripes"></div>
+                      <div class="polaroid-inner">
+                        <div class="polaroid-img-wrapper">
+                          <img src="./perundingan hooge veluwe.jpg" alt="Suasana Perundingan Hooge Veluwe di Belanda" loading="lazy">
+                          <div class="img-zoom-hint">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <circle cx="11" cy="11" r="8"></circle>
+                              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                              <line x1="11" y1="8" x2="11" y2="14"></line>
+                              <line x1="8" y1="11" x2="14" y2="11"></line>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="polaroid-caption">
+                          <span class="caption-handwritten">Hooge Veluwe (1946)</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- 2. Perundingan Linggarjati -->
+              <article class="event-scrapbook-card card-diplomasi" data-event-id="linggarjati" data-category="diplomasi" data-year="1947">
+                <div class="paper-clip-brass clip-card-left"></div>
+                <div class="washi-tape tape-card-corner tape-green-pattern"></div>
+                
+                <div class="card-side-by-side">
+                  <div class="card-text-column">
+                    <div class="card-number-badge">
+                      <span class="badge-num num-green">2</span>
+                      <h3 class="event-title">Perundingan Linggarjati</h3>
+                    </div>
+                    
+                    <ul class="event-details-list">
+                      <li class="detail-item">
+                        <span class="detail-label">Waktu</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value highlight-date">Ditandatangani 25 Maret 1947</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Tokoh</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Sutan Sjahrir dan Wim Schermerhorn.</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Isi</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Belanda mengakui secara de facto wilayah Republik Indonesia di Jawa, Madura, dan Sumatra. Kedua pihak sepakat membentuk RIS dan Uni Indonesia–Belanda.</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Dampak</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Memberikan pengakuan terbatas, tetapi perbedaan penafsiran berlanjut hingga Agresi Militer Belanda I.</span>
+                      </li>
+                    </ul>
+
+                    <div class="card-action-footer">
+                      <button class="btn-read-aloud btn-aloud-green" onclick="readEventNarration('linggarjati')" title="Dengarkan narasi">
+                        <svg class="speaker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                        </svg>
+                        <span>Dengarkan</span>
+                      </button>
+                      <button class="btn-inspect-detail btn-inspect-green" onclick="openDetailModal('linggarjati')">
+                        Detail Lengkap
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="card-photo-column">
+                    <div class="scrapbook-polaroid polaroid-tilt-left" onclick="openPhotoModal('perundingan linggar jati.jpg', 'Perundingan Linggarjati (Maret 1947)', 'Gedung perundingan di Kuningan, Jawa Barat yang melahirkan naskah Persetujuan Linggarjati.')">
+                      <div class="washi-tape tape-polaroid-top tape-pink-stripes"></div>
+                      <div class="polaroid-inner">
+                        <div class="polaroid-img-wrapper">
+                          <img src="./perundingan linggar jati.jpg" alt="Naskah dan arsip Perundingan Linggarjati di Kuningan" loading="lazy">
+                          <div class="img-zoom-hint">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <circle cx="11" cy="11" r="8"></circle>
+                              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                              <line x1="11" y1="8" x2="11" y2="14"></line>
+                              <line x1="8" y1="11" x2="14" y2="11"></line>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="polaroid-caption">
+                          <span class="caption-handwritten">Persetujuan Linggarjati</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- 3. Perjanjian Renville -->
+              <article class="event-scrapbook-card card-diplomasi" data-event-id="renville" data-category="diplomasi" data-year="1948">
+                <div class="paper-clip-brass clip-card-left"></div>
+                <div class="washi-tape tape-card-corner tape-green-pattern"></div>
+                
+                <div class="card-side-by-side">
+                  <div class="card-text-column">
+                    <div class="card-number-badge">
+                      <span class="badge-num num-green">3</span>
+                      <h3 class="event-title">Perjanjian Renville</h3>
+                    </div>
+                    
+                    <ul class="event-details-list">
+                      <li class="detail-item">
+                        <span class="detail-label">Waktu</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value highlight-date">17 Januari 1948</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Tokoh</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Amir Sjarifuddin.</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Tempat</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Kapal USS Renville.</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Isi</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Gencatan senjata dan penetapan Garis Van Mook.</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Dampak</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Wilayah Republik semakin sempit dan pasukan Indonesia harus meninggalkan sejumlah daerah.</span>
+                      </li>
+                    </ul>
+
+                    <div class="card-action-footer">
+                      <button class="btn-read-aloud btn-aloud-green" onclick="readEventNarration('renville')" title="Dengarkan narasi">
+                        <svg class="speaker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                        </svg>
+                        <span>Dengarkan</span>
+                      </button>
+                      <button class="btn-inspect-detail btn-inspect-green" onclick="openDetailModal('renville')">
+                        Detail Lengkap
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="card-photo-column">
+                    <div class="scrapbook-polaroid polaroid-tilt-right" onclick="openPhotoModal('renville.jpg', 'Perjanjian Renville (Januari 1948)', 'Kapal perang pengangkut Amerika Serikat USS Renville berlabuh di Teluk Jakarta sebagai tempat netral perundingan.')">
+                      <div class="washi-tape tape-polaroid-top tape-green-dots"></div>
+                      <div class="polaroid-inner">
+                        <div class="polaroid-img-wrapper">
+                          <img src="./renville.jpg" alt="Kapal perang USS Renville tempat perundingan" loading="lazy">
+                          <div class="img-zoom-hint">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <circle cx="11" cy="11" r="8"></circle>
+                              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                              <line x1="11" y1="8" x2="11" y2="14"></line>
+                              <line x1="8" y1="11" x2="14" y2="11"></line>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="polaroid-caption">
+                          <span class="caption-handwritten">Kapal USS Renville</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- 4. Perundingan Roem–Royen -->
+              <article class="event-scrapbook-card card-diplomasi" data-event-id="roem-royen" data-category="diplomasi" data-year="1949">
+                <div class="paper-clip-brass clip-card-left"></div>
+                <div class="washi-tape tape-card-corner tape-green-pattern"></div>
+                
+                <div class="card-side-by-side">
+                  <div class="card-text-column">
+                    <div class="card-number-badge">
+                      <span class="badge-num num-green">4</span>
+                      <h3 class="event-title">Perundingan Roem–Royen</h3>
+                    </div>
+                    
+                    <ul class="event-details-list">
+                      <li class="detail-item">
+                        <span class="detail-label">Waktu</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value highlight-date">7 Mei 1949</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Tokoh</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Mohammad Roem dan Herman van Roijen.</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Isi</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Belanda menyetujui pemulihan pemerintahan Republik di Yogyakarta dan pembebasan tahanan politik. Indonesia bersedia bekerja sama memulihkan perdamaian dan menghadiri KMB.</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Dampak</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Pemerintahan Republik kembali ke Yogyakarta dan jalan menuju penyerahan kedaulatan terbuka.</span>
+                      </li>
+                    </ul>
+
+                    <div class="card-action-footer">
+                      <button class="btn-read-aloud btn-aloud-green" onclick="readEventNarration('roem-royen')" title="Dengarkan narasi">
+                        <svg class="speaker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                        </svg>
+                        <span>Dengarkan</span>
+                      </button>
+                      <button class="btn-inspect-detail btn-inspect-green" onclick="openDetailModal('roem-royen')">
+                        Detail Lengkap
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="card-photo-column">
+                    <div class="scrapbook-polaroid polaroid-tilt-left" onclick="openPhotoModal('perundingan roem royen.jpg', 'Perundingan Roem-Royen (Mei 1949)', 'Pertemuan Mohammad Roem dan Herman van Roijen di Hotel Des Indes Batavia.')">
+                      <div class="washi-tape tape-polaroid-top tape-pink-dots"></div>
+                      <div class="polaroid-inner">
+                        <div class="polaroid-img-wrapper">
+                          <img src="./perundingan roem royen.jpg" alt="Delegasi Mohammad Roem dan Herman van Roijen" loading="lazy">
+                          <div class="img-zoom-hint">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <circle cx="11" cy="11" r="8"></circle>
+                              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                              <line x1="11" y1="8" x2="11" y2="14"></line>
+                              <line x1="8" y1="11" x2="14" y2="11"></line>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="polaroid-caption">
+                          <span class="caption-handwritten">Roem & Van Roijen</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- 5. Konferensi Meja Bundar (KMB) -->
+              <article class="event-scrapbook-card card-diplomasi" data-event-id="kmb" data-category="diplomasi" data-year="1949">
+                <div class="paper-clip-brass clip-card-left"></div>
+                <div class="washi-tape tape-card-corner tape-green-pattern"></div>
+                
+                <div class="card-side-by-side">
+                  <div class="card-text-column">
+                    <div class="card-number-badge">
+                      <span class="badge-num num-green">5</span>
+                      <h3 class="event-title">Konferensi Meja Bundar (KMB)</h3>
+                    </div>
+                    
+                    <ul class="event-details-list">
+                      <li class="detail-item">
+                        <span class="detail-label">Waktu</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value highlight-date">23 Agustus–2 November 1949</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Tempat</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Den Haag, Belanda.</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Tokoh</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Mohammad Hatta.</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Isi</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Belanda setuju menyerahkan kedaulatan kepada Republik Indonesia Serikat (RIS), sedangkan masalah Irian Barat ditunda.</span>
+                      </li>
+                      <li class="detail-item">
+                        <span class="detail-label">Dampak</span>
+                        <span class="detail-separator">:</span>
+                        <span class="detail-value">Kedaulatan diserahkan pada 27 Desember 1949, mengakhiri konflik utama Indonesia–Belanda.</span>
+                      </li>
+                    </ul>
+
+                    <div class="card-action-footer">
+                      <button class="btn-read-aloud btn-aloud-green" onclick="readEventNarration('kmb')" title="Dengarkan narasi">
+                        <svg class="speaker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                        </svg>
+                        <span>Dengarkan</span>
+                      </button>
+                      <button class="btn-inspect-detail btn-inspect-green" onclick="openDetailModal('kmb')">
+                        Detail Lengkap
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="card-photo-column">
+                    <div class="scrapbook-polaroid polaroid-tilt-right" onclick="openPhotoModal('konferensi meja bundar.jpg', 'Konferensi Meja Bundar Den Haag (1949)', 'Drs. Mohammad Hatta memimpin delegasi Indonesia di Den Haag hingga penyerahan kedaulatan 27 Desember 1949.')">
+                      <div class="washi-tape tape-polaroid-top tape-green-stripes"></div>
+                      <div class="polaroid-inner">
+                        <div class="polaroid-img-wrapper">
+                          <img src="./konferensi meja bundar.jpg" alt="Sidang Konferensi Meja Bundar di Den Haag Belanda" loading="lazy">
+                          <div class="img-zoom-hint">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <circle cx="11" cy="11" r="8"></circle>
+                              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                              <line x1="11" y1="8" x2="11" y2="14"></line>
+                              <line x1="8" y1="11" x2="14" y2="11"></line>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="polaroid-caption">
+                          <span class="caption-handwritten">KMB di Den Haag 1949</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+            </div>
+          </section>
+
+        </div>
+
+        <!-- ============================================== -->
+        <!-- BOTTOM SECTION: TIMELINE, KESIMPULAN & QUOTES -->
+        <!-- ============================================== -->
+        <footer class="poster-footer-section">
+
+          <!-- Left Quote Scrapbook Card -->
+          <div class="bottom-quote-card quote-left">
+            <div class="washi-tape tape-quote tape-green"></div>
+            <div class="paper-clip-brass clip-quote"></div>
+            <p class="handwritten-quote">
+              &ldquo;Bangsa yang besar adalah bangsa yang tidak melupakan sejarahnya.&rdquo;
+            </p>
+            <span class="quote-author">— Ir. Soekarno</span>
+          </div>
+
+          <!-- Middle Timeline Card (Kronologi Singkat 1945–1949) -->
+          <div class="timeline-craft-card" id="timelineCraftCard">
+            <div class="washi-tape tape-timeline-top tape-pink-dots"></div>
+            <div class="timeline-header">
+              <span class="timeline-heart-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="#d47a8a">
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+              </span>
+              <h3 class="timeline-title">Kronologi Singkat 1945 – 1949</h3>
+              <span class="timeline-subtitle">Klik tahun untuk menyorot peristiwa</span>
+            </div>
+
+            <div class="timeline-nodes-track">
+              <div class="timeline-line"></div>
+              
+              <!-- 1945 -->
+              <button class="timeline-node" data-year="1945" onclick="filterByYear(1945)">
+                <div class="node-bullet">
+                  <span class="bullet-inner"></span>
+                </div>
+                <span class="node-year">1945</span>
+                <span class="node-desc">Perlawanan fisik meluas</span>
+              </button>
+
+              <!-- 1946 -->
+              <button class="timeline-node" data-year="1946" onclick="filterByYear(1946)">
+                <div class="node-bullet">
+                  <span class="bullet-inner"></span>
+                </div>
+                <span class="node-year">1946</span>
+                <span class="node-desc">Diplomasi & perlawanan daerah</span>
+              </button>
+
+              <!-- 1947 -->
+              <button class="timeline-node" data-year="1947" onclick="filterByYear(1947)">
+                <div class="node-bullet">
+                  <span class="bullet-inner"></span>
+                </div>
+                <span class="node-year">1947</span>
+                <span class="node-desc">Linggarjati & Agresi Militer I</span>
+              </button>
+
+              <!-- 1948 -->
+              <button class="timeline-node" data-year="1948" onclick="filterByYear(1948)">
+                <div class="node-bullet">
+                  <span class="bullet-inner"></span>
+                </div>
+                <span class="node-year">1948</span>
+                <span class="node-desc">Renville & Agresi Militer II</span>
+              </button>
+
+              <!-- 1949 -->
+              <button class="timeline-node" data-year="1949" onclick="filterByYear(1949)">
+                <div class="node-bullet">
+                  <span class="bullet-inner"></span>
+                </div>
+                <span class="node-year">1949</span>
+                <span class="node-desc">Roem-Royen, KMB & Pengakuan Kedaulatan</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Section C: Kesimpulan Card -->
+          <div class="conclusion-craft-card" id="cardKesimpulan">
+            <div class="washi-tape tape-conclusion tape-pink-large"></div>
+            <div class="conclusion-header">
+              <h3 class="conclusion-title">C. Kesimpulan</h3>
+              <div class="heart-pair-decor" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="#a83c50">
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+              </div>
+            </div>
+            <p class="conclusion-body">
+              Perjuangan fisik dan diplomasi saling melengkapi dalam mempertahankan kemerdekaan Indonesia. Perjuangan fisik membuktikan keberanian rakyat melawan penjajah, sedangkan diplomasi memperkuat kedudukan Indonesia di dunia internasional. Puncaknya, Belanda menyerahkan kedaulatan pada 27 Desember 1949. Perjuangan ini mengajarkan pentingnya persatuan, keberanian, pengorbanan, dan pantang menyerah demi kemerdekaan bangsa.
+            </p>
+          </div>
+
+          <!-- Right Quote Scrapbook Card -->
+          <div class="bottom-quote-card quote-right">
+            <div class="washi-tape tape-quote tape-pink"></div>
+            <div class="wax-seal-mini"></div>
+            <p class="handwritten-quote-alt">
+              Kita Merdeka<br>karena Mereka<br>Berjuang
+            </p>
+            <div class="doodle-heart-bottom" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="#a83c50">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+              </svg>
+            </div>
+          </div>
+
+        </footer>
+
+      </div>
+    </div>
+
+
+  </main>
+
+  <!-- ======================================================== -->
+  <!-- MODAL 1: HIGH-RES PHOTO LIGHTBOX WITH VINTAGE SCRAPBOOK -->
+  <!-- ======================================================== -->
+  <div id="photoModal" class="scrapbook-modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modalPhotoTitle">
+    <div class="scrapbook-modal-dialog">
+      <div class="washi-tape tape-modal tape-pink"></div>
+      <button class="modal-close-btn" onclick="closePhotoModal()" title="Tutup Foto">&times;</button>
+      
+      <div class="modal-polaroid-frame">
+        <div class="modal-photo-img-box">
+          <img id="modalPhotoImg" src="" alt="Foto Sejarah Bersejarah">
+        </div>
+        <div class="modal-photo-caption">
+          <h3 id="modalPhotoTitle">Judul Foto</h3>
+          <p id="modalPhotoDesc">Keterangan foto sejarah...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- MODAL 2: EVENT DETAIL FULL INSPECT DIARY                 -->
+  <!-- ======================================================== -->
+  <div id="detailModal" class="scrapbook-modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modalDetailTitle">
+    <div class="scrapbook-modal-dialog detail-dialog">
+      <div class="washi-tape tape-modal tape-green"></div>
+      <button class="modal-close-btn" onclick="closeDetailModal()" title="Tutup Detail">&times;</button>
+
+      <div class="diary-detail-card" id="diaryDetailContent">
+        <!-- Dynamically Populated by script.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- MODAL 3: INTERACTIVE HISTORICAL QUIZ (KUIS SCRAPBOOK)   -->
+  <!-- ======================================================== -->
+  <div id="quizModal" class="scrapbook-modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="quizModalHeading">
+    <div class="scrapbook-modal-dialog quiz-dialog">
+      <div class="washi-tape tape-modal tape-pink-large"></div>
+      <button class="modal-close-btn" onclick="closeQuizModal()" title="Tutup Kuis">&times;</button>
+      
+      <div class="quiz-container" id="quizContainer">
+        <div class="quiz-header">
+          <span class="quiz-stamp-badge">UJI PEMAHAMAN</span>
+          <h3 id="quizModalHeading">Kuis Sejarah Kemerdekaan RI</h3>
+          <p class="quiz-lead">Uji pengetahuanmu seputar perjuangan fisik dan diplomasi 1945–1949!</p>
+          <div class="quiz-progress-bar">
+            <div class="quiz-progress-fill" id="quizProgressFill" style="width: 20%;"></div>
+          </div>
+        </div>
+
+        <!-- Quiz Question Stage -->
+        <div class="quiz-question-card" id="quizCard">
+          <div class="question-number-pill" id="quizNumber">Pertanyaan 1 dari 5</div>
+          <h4 class="question-prompt-text" id="quizQuestion">Pertanyaan kuis sejarah...</h4>
+          <div class="quiz-options-list" id="quizOptions">
+            <!-- Options buttons inserted by JS -->
+          </div>
+        </div>
+
+        <!-- Quiz Feedback & Navigation -->
+        <div class="quiz-feedback-box hidden" id="quizFeedback">
+          <div class="feedback-badge" id="feedbackBadge">Benar!</div>
+          <p class="feedback-explanation" id="feedbackText">Penjelasan jawaban sejarah...</p>
+          <button class="btn-quiz-next" id="btnQuizNext" onclick="nextQuizQuestion()">Lanjut ke Pertanyaan Berikutnya</button>
+        </div>
+
+        <!-- Quiz Completion Certificate Stamp -->
+        <div class="quiz-result-box hidden" id="quizResult">
+          <div class="certificate-seal">
+            <svg viewBox="0 0 100 100" class="cert-svg">
+              <circle cx="50" cy="50" r="44" fill="#2e5a44" stroke="#d47a8a" stroke-width="4"/>
+              <circle cx="50" cy="50" r="38" fill="none" stroke="#f6cad2" stroke-dasharray="3,3" stroke-width="2"/>
+              <text x="50" y="46" text-anchor="middle" font-family="'Cinzel', serif" font-weight="bold" font-size="10" fill="#ffffff">LULUS KUIS</text>
+              <text x="50" y="62" text-anchor="middle" font-family="'Patrick Hand', cursive" font-size="9" fill="#fad2d8">PEJUANG SEJARAH</text>
+            </svg>
+          </div>
+          <h4 class="result-title">Hebat! Kamu Menyelesaikan Kuis!</h4>
+          <p class="result-score-text">Skor Akhir: <strong id="quizScoreDisplay">5/5</strong></p>
+          <p class="result-appreciation" id="quizAppreciation">Kamu telah memahami dengan sangat baik perjuangan fisik dan diplomasi pahlawan bangsa.</p>
+          
+          <div class="result-actions">
+            <button class="btn-quiz-restart" onclick="restartQuiz()">Ulangi Kuis</button>
+            <button class="btn-quiz-close" onclick="closeQuizModal()">Tutup Kuis</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Audio Synthesizer & Logic Script -->
+  <script src="script.js"></script>
+</body>
+</html>
